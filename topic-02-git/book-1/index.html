@@ -177,33 +177,129 @@ to configure any server</p>
 about breaking everything, or losing stuff</p>
 </li>
 </ul>
+<h2>What we&#39;ll cover</h2>
+<ul>
+<li>Commits - What they are and how to create them</li>
+<li>Branches - Why they are needed and how to work with them</li>
+<li>Merging - What it is and the most common types of merging</li>
+<li>Conflicts - Handling merge conflicts and minimizing the chances of hitting them</li>
+</ul>
 
             </div>
           
             <div  class="ui tab segment lab" data-tab="01">
-              <h1>Branching and merging</h1>
-<p>In this workshop, we&#39;ll cover the following:</p>
-<h2>Branches and branching</h2>
+              <h1>Commits</h1>
+<p>A commit is a snapshot of a project at a specific point in time. Think of it as
+a &#39;save point&#39; in a video game. If you mess up your project you can go back to
+a working commit.</p>
+<h2>Practical One</h2>
+<h4>Create a new repository</h4>
+<p>Before we create our first commit, we&#39;ll need to create a repository.</p>
+<p>Create a new directory.</p>
+<pre><code class="lang-bash">mkdir git-workshop
+cd git-workshop</code></pre>
+<p>Initialize a git repository, we will see a hidden <code>.git</code> directory created in
+the current directory. Let&#39;s not focus on that too much at the moment.</p>
+<pre><code class="lang-bash">git init
+# stdout: Initialized empty Git repository in...
+
+ls -a
+# stdout: .    ..   .git</code></pre>
+<h4>Create a commit</h4>
+<p>We have our repository created. Let&#39;s create a new file with some text inside
+it.</p>
+<pre><code class="lang-bash">echo &#39;Hello, World!&#39; &gt;&gt; hello.txt</code></pre>
+<p>We can now add the <code>hello.txt</code> file to the staging area, ready to be committed.
+Any future changes to <code>hello.txt</code> will not be included in the commit we create,
+unless we add them too.</p>
+<pre><code class="lang-bash">git add hello.txt</code></pre>
+<p>Finally we can create a commit using the contents of the staging area, and
+include a descriptive message of our changes.</p>
+<pre><code class="lang-bash"># Alternatively we can just do &#39;git commit&#39;, which will open up an editor to
+# enter the commit message.
+git commit -m &quot;Add hello.txt&quot;</code></pre>
+<p>We have created a commit, now let&#39;s create another one by making some changes
+to <code>hello.txt</code>. We&#39;ll leave this one to you, but our change could look
+something like:</p>
+<pre><code class="lang-bash">echo &#39; My name is &lt;your-name&gt;!&#39; &gt;&gt; hello.txt</code></pre>
+<h4>Viewing commit history</h4>
+<p>We have two commits created, let&#39;s take a look at the commit log.</p>
+<pre><code class="lang-bash">git log</code></pre>
+<p>The commits are ordered in reverse chronological order. Each commit item
+contains the SHA-1 hash of the commit, the author, the date the commit was
+authored and the commit message. We can use the SHA-1 hash of the commit to
+reference it when using other git commands.</p>
+<p>For example, we can <em>checkout</em> a commit:</p>
+<pre><code class="lang-bash">git checkout &lt;commit-sha-1&gt;
+cat hello.txt
+# stdout: Hello, World!
+
+# Use &#39;git checkout -&#39; to checkout the previous commit.
+git checkout -
+cat hello.txt
+# stdout: Hello, World! My name is &lt;your-name&gt;</code></pre>
+<h2>Diving deeper</h2>
+<p>We covered quite a lot in the previous practical. Let&#39;s go in depth on some of
+the topics covered.</p>
+<h3>Adding (Staging) and Committing</h3>
+<p>When performing a <code>git add</code> we mentioned the &quot;staging area&quot;. This is one of the
+three sections of a git project:</p>
 <ul>
-<li>What are branches, and why would you want to use them?</li>
-<li>How to create, checkout, change, and delete branches</li>
-</ul>
-<h2>Merging</h2>
-<ul>
-<li>What merging means in the context of Git branches</li>
-<li>The most common types of merges in Git<ul>
-<li>Fast-forward merging</li>
-<li>Merge commits (non-fast-forward merging)</li>
-</ul>
+<li><p>The working directory - This is all the files in your current directory. This
+is where files are modified before being staged.</p>
+</li>
+<li><p>The staging area - This is where changes are added during <code>git add</code>, when a
+commit is created the changes in the staging area will be the contents of the
+commit.</p>
+</li>
+<li><p>The repository - Changes that have been committed and persisted.</p>
 </li>
 </ul>
-<h2>Conflicts (and when to give up)</h2>
+<p><img src="./img/staging-and-comitting.png" alt="Sections of a git project"></p>
+<h3>Lifecycle of files</h3>
+<p>There are two states of a file in git:</p>
 <ul>
-<li>What are conflicts in Git, and how do they happen?</li>
-<li>How to abort the mission if the conflict is too much</li>
-<li>How to resolve conflicts</li>
-<li>How to minimize the chances of hitting a conflict</li>
+<li><p>Tracked files - This is any file that is in the previous commit, or currently
+staged.</p>
+</li>
+<li><p>Untracked files - Any file that is not a tracked file.</p>
+</li>
 </ul>
+<p>A tracked file can be:</p>
+<ul>
+<li><p>Modified: Changes have been made since the previous commit, but are not
+staged.</p>
+</li>
+<li><p>Staged: Changes have been made since the previous commit, and those changes
+are staged.</p>
+</li>
+<li><p>Unmodified: No changes have been made to the file since the last commit.</p>
+</li>
+</ul>
+<p><img src="./img/file-lifecycle.png" alt="File lifecycle"></p>
+<h2>Practical Two</h2>
+<p>Now we know a bit more about staging and the lifecycle of a file, let&#39;s have a
+look at the lifecycle in action.</p>
+<p>First, let&#39;s create a new untracked file.</p>
+<pre><code class="lang-bash">echo &#39;My favourite colour is &lt;your-favourite-colour&gt;!&#39; &gt;&gt; colour.txt</code></pre>
+<p>Now we want to see the status of the current project.</p>
+<pre><code class="lang-bash">git status</code></pre>
+<p>It tells us we have an untracked file called &#39;colour.txt&#39;. As we haven&#39;t
+changed the contents of &#39;hello.txt&#39; it is unmodified and does not show by
+default.</p>
+<p>If we <code>add</code> &#39;colour.txt&#39; to the staging area and check the status again we will
+see git is now telling us the file is staged or ready to be committed, the file
+is now also tracked.</p>
+<pre><code class="lang-bash">git add colour.txt
+
+git status
+# Note that the output also tells us how to unstage the file, using git reset.</code></pre>
+<p>Now let&#39;s change the contents of &#39;hello.txt&#39;, the file will then become
+modified and this will be shown when running <code>git status</code>.</p>
+<pre><code class="lang-bash">echo &#39; I am doing a Git workshop!&#39; &gt;&gt; hello.txt
+
+git status</code></pre>
+<p>Finally <code>add</code> and <code>commit</code> all of the changes.</p>
 
             </div>
           

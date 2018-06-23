@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,185 +7,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/css/uikit.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <style>
-      
+  </head>
+  <style>
+    
 
-body
-{
+body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
+  font-size:90%;
+  color: black;
 }
 
-figcaption
-{
-  margin-bottom: 20px;
+p {
+  margin: 0.5em;
 }
 
-.vertical-align
-{
-  display: flex;
-  align-items: center;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
-}
-
-code
-{
+pre code {
   font-family: "Monaco";
-  font-size: 110%;
+  font-size: 100%;
 }
 
-img
-{
-  padding:1px;
-  border:1px solid black;
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-h1
-{
+h1, h2, h3 {
+  border-bottom:thin solid black;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+}
+
+h1 {
   font-style:italic;
   font-size:130%;
-  border-bottom:thin solid black;
 }
 
-h2
-{
+h2 {
   font-size:110%;
-  border-bottom: thin solid black;
 }
 
-h3
-{
+h3 {
   font-size:100%;
-  border-bottom: thin solid black;
-}
-
-body
-{
-  overflow-y: scroll;
-}
-
-.pushable > .pusher
-{
-  padding-bottom: 1.5rem;
-}
-
-.ui.segment.pushable
-{
-  margin: 0;
-  padding: 1rem 0;
-  overflow: visible;
 }
 
 
 
-    </style>
-  </head>
+  </style>
+<body>
 
-  <body>
-    
-    
-
-    <div class="ui fixed top pointing inverted stackable menu labmenu">
-      <header class="header item">
-        <i id="toc" class="sitemap icon"></i>
-        <a href="../index.html">
-          Git Workshop 
-        </a>
-      </header>
-      <div class="right tab-menu menu">
-        
-          <a class="item" data-tab="Lab 02 Advanced">
-            Lab 02 Advanced
-          </a>
-        
-          <a class="item" data-tab="01">
-            01
-          </a>
-        
-          <a class="item" data-tab="02">
-            02
-          </a>
-        
-          <a class="item" data-tab="03">
-            03
-          </a>
-        
-          <a class="item" data-tab="04">
-            04
-          </a>
-        
-          <a class="item" data-tab="05">
-            05
-          </a>
-        
-          <a class="item" data-tab="06">
-            06
-          </a>
-        
-          <a class="item" data-tab="07">
-            07
-          </a>
-        
-          <a class="item" data-tab="08">
-            08
-          </a>
-        
-          <a class="item" data-tab="09">
-            09
-          </a>
-        
-          <a class="item" data-tab="10">
-            10
-          </a>
-        
-        <div class="item">
+  
+  <div class="uk-offcanvas-content">
+    <div id="offcanvas-usage" uk-offcanvas>
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav">
           
-        </div>
+            
+              <li>
+                <a class="item" href="https://wit-hdip-comp-sci-2018.github.io/june-onsite//topic-02-git/book-1/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab 01 Introduction
+                </a>
+              </li>
+            
+          
+            
+              <li>
+                <a class="item" href="https://wit-hdip-comp-sci-2018.github.io/june-onsite//topic-02-git/book-2/index.html">
+  <i class="fas fa-flask " style="color:#00BCD4"> </i>
+Lab 02 Advanced
+                </a>
+              </li>
+            
+          
+        </ul>
       </div>
     </div>
+  </div>
 
-    <div class="ui segment pushable">
-      <div class="ui inverted labeled icon left inline vertical sidebar menu">
-        <br><br>
-        
-          
-            <a class="item" href="../../topic-02-git/book-1/index.html">
-              Lab 01 Introduction
-            </a>
-          
-        
-          
-            <a class="active item" href="../../topic-02-git/book-2/index.html">
-              Lab 02 Advanced
-            </a>
-          
-        
+
+  <div uk-sticky>
+    <nav uk-navbar>
+      <div class="uk-navbar-left">
+        <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+          <li><a href="#offcanvas-usage" uk-icon="icon: menu", uk-toggle title="Switch Lab" pos="bottom" uk-tooltip></a></li>
+          <li class="uk-active"><a href="../index.html">Git Workshop </a></li>
+        </ul>
       </div>
-      <div class="pusher" tabindex="-1">
-        <div class="ui basic segment" id="labchat">
-          <br>
-          
-            <div  class="ui tab segment lab" data-tab="Lab 02 Advanced">
-              <h1>Objectives</h1>
-<p>Expand on git branching &amp; merging features with more advanced git commands and concepts</p>
 
-            </div>
+
+      <div class="uk-navbar-right">
+        <ul class="uk-subnav uk-background-secondary uk-subnav-pill uk-subnav-divider" uk-switcher="connect: .switcher-container">
           
-            <div  class="ui tab segment lab" data-tab="01">
-              <h1>(Recap) Saving Changes and Branching</h1>
+            <li><a href="#">Lab 02 Advanced</a></li>
+          
+            <li><a href="#">01</a></li>
+          
+            <li><a href="#">02</a></li>
+          
+            <li><a href="#">03</a></li>
+          
+            <li><a href="#">04</a></li>
+          
+            <li><a href="#">05</a></li>
+          
+            <li><a href="#">06</a></li>
+          
+            <li><a href="#">07</a></li>
+          
+            <li><a href="#">08</a></li>
+          
+            <li><a href="#">09</a></li>
+          
+            <li><a href="#">10</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="uk-container uk-container-expand">
+    <ul class="uk-switcher switcher-container">
+      
+        <li> <h1>Objectives</h1>
+<p>Expand on git branching &amp; merging features with more advanced git commands and concepts</p>
+</li>
+      
+        <li> <h1>(Recap) Saving Changes and Branching</h1>
 <h2>Saving</h2>
 <p>Saving changes is a two-step process in Git:</p>
 <pre><code class="lang-bash"># Stages changes to the staging area
@@ -264,11 +220,9 @@ stdout: &quot;Your branch is ahead of &#39;origin/anybranch&#39; by 3 commits&qu
 
 # Delete a branch from a remote
 git push origin --delete mybranchname</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="02">
-              <h1>Rewriting History</h1>
+</li>
+      
+        <li> <h1>Rewriting History</h1>
 <h2>Prerequisites</h2>
 <ul>
 <li>Git (2.x)</li>
@@ -312,11 +266,9 @@ git rebase origin/master
 # Alternatively:
 # We can do both a history rewrite and a rebase via:
 git rebase -i origin/master</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="03">
-              <h1>Stashing</h1>
+</li>
+      
+        <li> <h1>Stashing</h1>
 <p>Move changes in a dirty workspace away to the side</p>
 <pre><code class="lang-bash"># You have a dirty workspace
 $ git status -s
@@ -357,11 +309,9 @@ git stash drop stash@{0}
 
 # Or make a new branch &amp; restore your changes there
 git stash branch &lt;branchname&gt; [stash@&lt;revision&gt;]</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="04">
-              <h1>Tagging</h1>
+</li>
+      
+        <li> <h1>Tagging</h1>
 <ul>
 <li>There are two types of git tags - annotated and lightweight</li>
 <li>We’re going to only cover lightweight tags today (you’ll see these more often)</li>
@@ -405,11 +355,9 @@ git push origin :refs/tags/v99.0.0
 # A little bit about annotated tags
 git tag -s v0.99.0-annotated -m &quot;my tag v0.99.0-annotated&quot;
 git show v0.99.0-annotated</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="05">
-              <h1>Cherry Picking</h1>
+</li>
+      
+        <li> <h1>Cherry Picking</h1>
 <p>Apply the changes introduced by some existing commits</p>
 <p>Our main use-case for git-cherry-pick is for taking some bugfix commits from one branch, and applying them to another (e.g. a release branch and master)</p>
 <pre><code class="lang-bash"># Ensure that you&#39;re on the branch you want to copy commits to
@@ -429,11 +377,9 @@ Author: Jason Madigan &lt;jason@jasonmadigan.com&gt;
 Date:   Thu Dec 1 16:42:17 2016 +0000
 
     name change</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="06">
-              <h1>Hooks</h1>
+</li>
+      
+        <li> <h1>Hooks</h1>
 <p>Do something before or after a particular action</p>
 <ul>
 <li>Server-side hooks: we can&#39;t use them because of Github. Use webhooks instead</li>
@@ -468,11 +414,9 @@ man githooks</code></pre>
 <pre><code class="lang-bash">#!/usr/bin/bash --login
 
 eslint ./lib</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="07">
-              <h1>Config</h1>
+</li>
+      
+        <li> <h1>Config</h1>
 <p>Config is layered: system, global (user), local (repo)</p>
 <pre><code class="lang-bash"># System
 cat /etc/gitconfig
@@ -523,11 +467,9 @@ git config --global commit.template ~/.git-commit-template</code></pre>
     scrub = !git reset --hard &amp;&amp; git clean -fd</code></pre>
 <p>Lots of other useful aliases and config customization examples here:</p>
 <p><a href="https://github.com/matthewmccullough/dotfiles/blob/master/gitconfig">https://github.com/matthewmccullough/dotfiles/blob/master/gitconfig</a></p>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="08">
-              <h1>Bisecting</h1>
+</li>
+      
+        <li> <h1>Bisecting</h1>
 <ul>
 <li>git bisect helps you figure out when breaking changes were introduced</li>
 <li>Uses a binary-search between one changeset and another to quickly narrow breakage to a single commit</li>
@@ -548,11 +490,9 @@ git bisect bad bf0c5b1  # update to 502.0.0
 # If they fail - run `git bisect bad`
 # If they pass - run `git bisect good`
 # When done, reset via `git bisect reset` &amp; patch the bug</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="09">
-              <h1>Under the Covers</h1>
+</li>
+      
+        <li> <h1>Under the Covers</h1>
 <pre><code class="lang-bash">$ tree -L 1 ./.git
 ./.git
 ├── branches
@@ -648,11 +588,9 @@ git checkout HEAD@{2} # detached head, consider creating a branch here if import
 
 # Reset current branch to an earlier state
 git reset [--hard] HEAD@{4}</code></pre>
-
-            </div>
-          
-            <div  class="ui tab segment lab" data-tab="10">
-              <h1>Links</h1>
+</li>
+      
+        <li> <h1>Links</h1>
 <ul>
 <li>Oh shit - <a href="http://ohshitgit.com/">http://ohshitgit.com/</a></li>
 <li>Interactive git cheatsheet - <a href="http://ndpsoftware.com/git-cheatsheet.html">http://ndpsoftware.com/git-cheatsheet.html</a></li>
@@ -661,67 +599,8 @@ git reset [--hard] HEAD@{4}</code></pre>
 <li>GitHub resources - <a href="https://services.github.com/classnotes/">https://services.github.com/classnotes/</a></li>
 <li>Atlassian Git Tutorials - <a href="https://www.atlassian.com/git/tutorials">https://www.atlassian.com/git/tutorials</a></li>
 </ul>
-
-            </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <script>
-      $(document).on('keydown', function(e) {
-  e = e || window.event;
-  var nextTab;
-  switch (e.which || e.keyCode) {
-    case 37: // left
-      nextTab = $('.tab-menu a[data-tab].active').prev('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').last();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-
-    case 39: // right
-      nextTab = $('.tab-menu a[data-tab].active').next('a[data-tab]');
-      if (!nextTab.length) nextTab = $('.tab-menu a[data-tab]').first();
-      nextTab.click();
-      $('.pusher').focus();
-      break;
-  }
-});
-
-      $(document).ready(function() {
-  $('img').addClass('ui image');
-
-  $('.ui.embed').embed();
-
-  const $images = $('.lab img');
-  jQuery.each($images, function(i) {
-    if ($images[i].alt.length > 0) {
-      const divImg = $(document.createElement('div')).addClass(
-        'ui basic segment',
-      );
-      $($images[i]).wrap(divImg);
-      const divLabel = $(document.createElement('div')).addClass(
-        'ui blue ribbon label',
-      );
-      divLabel.append($images[i].alt);
-      $(divLabel).insertBefore($images[i]);
-    }
-  });
-
-  $('.ui.menu .item').tab({
-    history: true,
-    historyType: 'hash',
-  });
-
-  $('.popup').popup();
-
-  $('.ui.sidebar')
-    .sidebar({ context: $('.pushable') })
-    .sidebar('setting', 'transition', 'slide out')
-    .sidebar('attach events', '#toc');
-});
-
-    </script>
-  </body>
-</html>
+</li>
+      
+    </ul>
+  </div>
+</body>

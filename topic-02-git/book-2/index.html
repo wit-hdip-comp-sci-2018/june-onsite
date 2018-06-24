@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/css/uikit.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
@@ -60,9 +62,10 @@ h3 {
 
 
   </style>
-<body>
 
-  
+  <body class="lab">
+
+    
   <div class="uk-offcanvas-content">
     <div id="offcanvas-usage" uk-offcanvas>
       <div class="uk-offcanvas-bar">
@@ -93,53 +96,55 @@ Lab 02 Advanced
   </div>
 
 
-  <div uk-sticky>
-    <nav uk-navbar>
-      <div class="uk-navbar-left">
-        <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
-          <li><a href="#offcanvas-usage" uk-icon="icon: menu", uk-toggle title="Switch Lab" pos="bottom" uk-tooltip></a></li>
-          <li class="uk-active"><a href="../index.html">Git Workshop </a></li>
-        </ul>
-      </div>
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+            <li class="uk-active"><a href="../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                     pos="bottom" uk-tooltip>Git Workshop </a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">Lab 02 Advanced</a></li>
+            
+              <li><a href="#">01</a></li>
+            
+              <li><a href="#">02</a></li>
+            
+              <li><a href="#">03</a></li>
+            
+              <li><a href="#">04</a></li>
+            
+              <li><a href="#">05</a></li>
+            
+              <li><a href="#">06</a></li>
+            
+              <li><a href="#">07</a></li>
+            
+              <li><a href="#">08</a></li>
+            
+              <li><a href="#">09</a></li>
+            
+              <li><a href="#">10</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
 
-
-      <div class="uk-navbar-right">
-        <ul class="uk-subnav uk-background-secondary uk-subnav-pill uk-subnav-divider" uk-switcher="connect: .switcher-container">
-          
-            <li><a href="#">Lab 02 Advanced</a></li>
-          
-            <li><a href="#">01</a></li>
-          
-            <li><a href="#">02</a></li>
-          
-            <li><a href="#">03</a></li>
-          
-            <li><a href="#">04</a></li>
-          
-            <li><a href="#">05</a></li>
-          
-            <li><a href="#">06</a></li>
-          
-            <li><a href="#">07</a></li>
-          
-            <li><a href="#">08</a></li>
-          
-            <li><a href="#">09</a></li>
-          
-            <li><a href="#">10</a></li>
-          
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <div class="uk-container uk-container-expand">
-    <ul class="uk-switcher switcher-container">
-      
-        <li> <h1>Objectives</h1>
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>Objectives</h1>
 <p>Expand on git branching &amp; merging features with more advanced git commands and concepts</p>
 </li>
-      
-        <li> <h1>(Recap) Saving Changes and Branching</h1>
+        
+          <li> <h1>(Recap) Saving Changes and Branching</h1>
 <h2>Saving</h2>
 <p>Saving changes is a two-step process in Git:</p>
 <pre><code class="lang-bash"># Stages changes to the staging area
@@ -221,8 +226,8 @@ stdout: &quot;Your branch is ahead of &#39;origin/anybranch&#39; by 3 commits&qu
 # Delete a branch from a remote
 git push origin --delete mybranchname</code></pre>
 </li>
-      
-        <li> <h1>Rewriting History</h1>
+        
+          <li> <h1>Rewriting History</h1>
 <h2>Prerequisites</h2>
 <ul>
 <li>Git (2.x)</li>
@@ -267,8 +272,8 @@ git rebase origin/master
 # We can do both a history rewrite and a rebase via:
 git rebase -i origin/master</code></pre>
 </li>
-      
-        <li> <h1>Stashing</h1>
+        
+          <li> <h1>Stashing</h1>
 <p>Move changes in a dirty workspace away to the side</p>
 <pre><code class="lang-bash"># You have a dirty workspace
 $ git status -s
@@ -310,8 +315,8 @@ git stash drop stash@{0}
 # Or make a new branch &amp; restore your changes there
 git stash branch &lt;branchname&gt; [stash@&lt;revision&gt;]</code></pre>
 </li>
-      
-        <li> <h1>Tagging</h1>
+        
+          <li> <h1>Tagging</h1>
 <ul>
 <li>There are two types of git tags - annotated and lightweight</li>
 <li>We’re going to only cover lightweight tags today (you’ll see these more often)</li>
@@ -356,8 +361,8 @@ git push origin :refs/tags/v99.0.0
 git tag -s v0.99.0-annotated -m &quot;my tag v0.99.0-annotated&quot;
 git show v0.99.0-annotated</code></pre>
 </li>
-      
-        <li> <h1>Cherry Picking</h1>
+        
+          <li> <h1>Cherry Picking</h1>
 <p>Apply the changes introduced by some existing commits</p>
 <p>Our main use-case for git-cherry-pick is for taking some bugfix commits from one branch, and applying them to another (e.g. a release branch and master)</p>
 <pre><code class="lang-bash"># Ensure that you&#39;re on the branch you want to copy commits to
@@ -378,8 +383,8 @@ Date:   Thu Dec 1 16:42:17 2016 +0000
 
     name change</code></pre>
 </li>
-      
-        <li> <h1>Hooks</h1>
+        
+          <li> <h1>Hooks</h1>
 <p>Do something before or after a particular action</p>
 <ul>
 <li>Server-side hooks: we can&#39;t use them because of Github. Use webhooks instead</li>
@@ -415,8 +420,8 @@ man githooks</code></pre>
 
 eslint ./lib</code></pre>
 </li>
-      
-        <li> <h1>Config</h1>
+        
+          <li> <h1>Config</h1>
 <p>Config is layered: system, global (user), local (repo)</p>
 <pre><code class="lang-bash"># System
 cat /etc/gitconfig
@@ -468,8 +473,8 @@ git config --global commit.template ~/.git-commit-template</code></pre>
 <p>Lots of other useful aliases and config customization examples here:</p>
 <p><a href="https://github.com/matthewmccullough/dotfiles/blob/master/gitconfig">https://github.com/matthewmccullough/dotfiles/blob/master/gitconfig</a></p>
 </li>
-      
-        <li> <h1>Bisecting</h1>
+        
+          <li> <h1>Bisecting</h1>
 <ul>
 <li>git bisect helps you figure out when breaking changes were introduced</li>
 <li>Uses a binary-search between one changeset and another to quickly narrow breakage to a single commit</li>
@@ -491,8 +496,8 @@ git bisect bad bf0c5b1  # update to 502.0.0
 # If they pass - run `git bisect good`
 # When done, reset via `git bisect reset` &amp; patch the bug</code></pre>
 </li>
-      
-        <li> <h1>Under the Covers</h1>
+        
+          <li> <h1>Under the Covers</h1>
 <pre><code class="lang-bash">$ tree -L 1 ./.git
 ./.git
 ├── branches
@@ -589,8 +594,8 @@ git checkout HEAD@{2} # detached head, consider creating a branch here if import
 # Reset current branch to an earlier state
 git reset [--hard] HEAD@{4}</code></pre>
 </li>
-      
-        <li> <h1>Links</h1>
+        
+          <li> <h1>Links</h1>
 <ul>
 <li>Oh shit - <a href="http://ohshitgit.com/">http://ohshitgit.com/</a></li>
 <li>Interactive git cheatsheet - <a href="http://ndpsoftware.com/git-cheatsheet.html">http://ndpsoftware.com/git-cheatsheet.html</a></li>
@@ -600,7 +605,26 @@ git reset [--hard] HEAD@{4}</code></pre>
 <li>Atlassian Git Tutorials - <a href="https://www.atlassian.com/git/tutorials">https://www.atlassian.com/git/tutorials</a></li>
 </ul>
 </li>
-      
-    </ul>
-  </div>
-</body>
+        
+      </ul>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass('');
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+          'uk-label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+});
+
+    </script>
+  </body>
+</html>

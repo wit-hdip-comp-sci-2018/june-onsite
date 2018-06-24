@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/css/uikit.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.4/js/uikit-icons.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/css/uikit.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
@@ -60,9 +62,10 @@ h3 {
 
 
   </style>
-<body>
 
-  
+  <body class="lab">
+
+    
   <div class="uk-offcanvas-content">
     <div id="offcanvas-usage" uk-offcanvas>
       <div class="uk-offcanvas-bar">
@@ -93,37 +96,39 @@ Lab 02 Advanced
   </div>
 
 
-  <div uk-sticky>
-    <nav uk-navbar>
-      <div class="uk-navbar-left">
-        <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
-          <li><a href="#offcanvas-usage" uk-icon="icon: menu", uk-toggle title="Switch Lab" pos="bottom" uk-tooltip></a></li>
-          <li class="uk-active"><a href="../index.html">Git Workshop </a></li>
-        </ul>
-      </div>
+    <div uk-sticky>
+      <nav class="uk-navbar">
+        <div class="uk-navbar-left">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill">
+            <li><a href="#offcanvas-usage" uk-icon="icon: menu" , uk-toggle title="Switch Lab" pos="bottom"
+                   uk-tooltip></a></li>
+            <li class="uk-active"><a href="../index.html" uk-icon="icon: chevron-up" uk-toggle title="Parent Topic"
+                                     pos="bottom" uk-tooltip>Git Workshop </a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-subnav uk-background-secondary uk-subnav-pill"
+              uk-switcher="connect: .switcher-container">
+            
+              <li><a href="#">Lab 01 Introduction</a></li>
+            
+              <li><a href="#">01</a></li>
+            
+              <li><a href="#">02</a></li>
+            
+              <li><a href="#">03</a></li>
+            
+              <li><a href="#">04</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
 
-
-      <div class="uk-navbar-right">
-        <ul class="uk-subnav uk-background-secondary uk-subnav-pill uk-subnav-divider" uk-switcher="connect: .switcher-container">
-          
-            <li><a href="#">Lab 01 Introduction</a></li>
-          
-            <li><a href="#">01</a></li>
-          
-            <li><a href="#">02</a></li>
-          
-            <li><a href="#">03</a></li>
-          
-            <li><a href="#">04</a></li>
-          
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <div class="uk-container uk-container-expand">
-    <ul class="uk-switcher switcher-container">
-      
-        <li> <h1>Objectives</h1>
+    <div class="uk-container uk-container-expand">
+      <ul class="uk-switcher switcher-container">
+        
+          <li> <h1>Objectives</h1>
 <p>Introducing the fundamentals of git using the command line</p>
 <h2>Why use a version control system (such as Git)?</h2>
 <ul>
@@ -155,8 +160,8 @@ about breaking everything, or losing stuff</p>
 <li>Conflicts - Handling merge conflicts and minimizing the chances of hitting them</li>
 </ul>
 </li>
-      
-        <li> <h1>Commits</h1>
+        
+          <li> <h1>Commits</h1>
 <p>A commit is a snapshot of a project at a specific point in time. Think of it as
 a &#39;save point&#39; in a video game. If you mess up your project you can go back to
 a working commit.</p>
@@ -269,8 +274,8 @@ modified and this will be shown when running <code>git status</code>.</p>
 git status</code></pre>
 <p>Finally <code>add</code> and <code>commit</code> all of the changes.</p>
 </li>
-      
-        <li> <h1>Branches</h1>
+        
+          <li> <h1>Branches</h1>
 <p>A branch is just a reference to a commit, it has a human-readable name
 and identifier. Instead of using the SHA-1 hash to reference a commit we can
 now use the name of a branch.</p>
@@ -330,8 +335,8 @@ git branch favourite-show master
 git checkout favourite-show</code></pre>
 <p>We&#39;ll leave the rest to you.</p>
 </li>
-      
-        <li> <h1>Merging</h1>
+        
+          <li> <h1>Merging</h1>
 <p>In the last section, we learned about creating new branches. Often branches are
 created temporarily to work on a specific piece of work. When that work is
 ready, then those changes are brought back into the main line again.</p>
@@ -371,8 +376,8 @@ changes will be in its ancestors. Sometimes when merging two divergent branches
 though, there will be conflicting changes on either side of the merge. In this
 case, there may be changes needed in the merge commit to resolve the conflicts.</p>
 </li>
-      
-        <li> <h1>Conflicts</h1>
+        
+          <li> <h1>Conflicts</h1>
 <h2>What are conflicts, and how do they happen?</h2>
 <p>Conflicts in git occur when trying to integrate changes from two different
 states, where different changes are made in one place. The most common case is
@@ -434,7 +439,26 @@ command.</p>
 <h5>Minimising merge conflicts</h5>
 <p>To minimise merge conflicts keep commits small and integrate changes often.</p>
 </li>
-      
-    </ul>
-  </div>
-</body>
+        
+      </ul>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+  const $images = $('.lab img');
+  jQuery.each($images, function(i) {
+    if ($images[i].alt.length > 0) {
+      const divImg = $(document.createElement('div')).addClass('');
+      $($images[i]).wrap(divImg);
+      const divLabel = $(document.createElement('div')).addClass(
+          'uk-label',
+      );
+      divLabel.append($images[i].alt);
+      $(divLabel).insertBefore($images[i]);
+    }
+  });
+});
+
+    </script>
+  </body>
+</html>

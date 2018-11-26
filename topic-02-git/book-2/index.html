@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
-        type="text/css">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
-        rel="stylesheet"/>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <style>
-    
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css"
+          rel="stylesheet"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+      
 
 body {
   font-family: "Open Sans", "Helvetica", "Helvetica Neue",  "Arial", sans-serif;
@@ -66,96 +66,124 @@ h3 {
 
 
 
-  </style>
-</head>
+      
 
-<body>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.footer {
+  background: white;
+  text-align: right;
+}
+.content {
+  flex: 1;
+  overflow: auto;
+}
 
 
 
-<div class="ui fixed top pointing inverted stackable menu labmenu">
-  <header class="header item">
-    <i id="toc" class="sitemap icon"></i>
-    
-      <a href="../index.html"> Git Workshop  </a>
-    
-  </header>
-  <div class="right tab-menu menu">
-    
-      <a class="item" data-tab="Lab 02 Advanced">
-        Lab 02 Advanced
-      </a>
-    
-      <a class="item" data-tab="01">
-        01
-      </a>
-    
-      <a class="item" data-tab="02">
-        02
-      </a>
-    
-      <a class="item" data-tab="03">
-        03
-      </a>
-    
-      <a class="item" data-tab="04">
-        04
-      </a>
-    
-      <a class="item" data-tab="05">
-        05
-      </a>
-    
-      <a class="item" data-tab="06">
-        06
-      </a>
-    
-      <a class="item" data-tab="07">
-        07
-      </a>
-    
-      <a class="item" data-tab="08">
-        08
-      </a>
-    
-      <a class="item" data-tab="09">
-        09
-      </a>
-    
-      <a class="item" data-tab="10">
-        10
-      </a>
-    
+    </style>
+  </head>
+
+  <body class="uk-background-muted">
+    <div class="wrapper">
+      <div class="content">
+        <div style="height:1000px;">
+          
+  
+
+  <div class="ui fixed top pointing inverted stackable menu labmenu">
+    <header class="header item">
+      <i id="toc" class="sitemap icon"></i>
+      
+        <a href="../index.html"> Git Workshop  </a>
+      
+    </header>
+    <div class="right tab-menu menu">
+      
+        <a class="item" data-tab="Lab 02 Advanced">
+          Lab 02 Advanced
+        </a>
+      
+        <a class="item" data-tab="01">
+          01
+        </a>
+      
+        <a class="item" data-tab="02">
+          02
+        </a>
+      
+        <a class="item" data-tab="03">
+          03
+        </a>
+      
+        <a class="item" data-tab="04">
+          04
+        </a>
+      
+        <a class="item" data-tab="05">
+          05
+        </a>
+      
+        <a class="item" data-tab="06">
+          06
+        </a>
+      
+        <a class="item" data-tab="07">
+          07
+        </a>
+      
+        <a class="item" data-tab="08">
+          08
+        </a>
+      
+        <a class="item" data-tab="09">
+          09
+        </a>
+      
+        <a class="item" data-tab="10">
+          10
+        </a>
+      
+    </div>
   </div>
-</div>
 
-<div class="ui pushable">
-  <div class="ui inverted labeled icon left inline vertical sidebar menu">
-    <br><br>
-    
+
+  
+
+  <div class="ui pushable">
+    <div class="ui inverted labeled icon left inline vertical sidebar menu">
+      <br><br>
       
-        <a class="item"
-           href="https://wit-hdip-comp-sci-2018.github.io/june-onsite//topic-02-git/book-1/index.html">Lab 01 Introduction </a>
+        
+          <a class="item"
+             href="https://wit-hdip-comp-sci-2018.github.io/june-onsite//topic-02-git/book-1/index.html">Lab 01 Introduction </a>
+        
       
-    
+        
+          <a class="item"
+             href="https://wit-hdip-comp-sci-2018.github.io/june-onsite//topic-02-git/book-2/index.html">Lab 02 Advanced </a>
+        
       
-        <a class="item"
-           href="https://wit-hdip-comp-sci-2018.github.io/june-onsite//topic-02-git/book-2/index.html">Lab 02 Advanced </a>
-      
-    
-  </div>
-  <div class="pusher" tabindex="-1">
-    <div class="ui basic segment">
-      <br>
-      
-        <div class="ui tab segment lab" data-tab="Lab 02 Advanced">
-          <h1>Objectives</h1>
+    </div>
+    <div class="pusher" tabindex="-1">
+      <div class="ui basic segment">
+        <br>
+        
+          <div class="ui tab segment lab" data-tab="Lab 02 Advanced">
+            <h1>Objectives</h1>
 <p>Expand on git branching &amp; merging features with more advanced git commands and concepts</p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="01">
-          <h1>(Recap) Saving Changes and Branching</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="01">
+            <h1>(Recap) Saving Changes and Branching</h1>
 <h2>Saving</h2>
 <p>Saving changes is a two-step process in Git:</p>
 <pre><code class="lang-bash"># Stages changes to the staging area
@@ -237,10 +265,10 @@ stdout: &quot;Your branch is ahead of &#39;origin/anybranch&#39; by 3 commits&qu
 # Delete a branch from a remote
 git push origin --delete mybranchname</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="02">
-          <h1>Rewriting History</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="02">
+            <h1>Rewriting History</h1>
 <h2>Prerequisites</h2>
 <ul>
 <li>Git (2.x)</li>
@@ -285,10 +313,10 @@ git rebase origin/master
 # We can do both a history rewrite and a rebase via:
 git rebase -i origin/master</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="03">
-          <h1>Stashing</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="03">
+            <h1>Stashing</h1>
 <p>Move changes in a dirty workspace away to the side</p>
 <pre><code class="lang-bash"># You have a dirty workspace
 $ git status -s
@@ -330,10 +358,10 @@ git stash drop stash@{0}
 # Or make a new branch &amp; restore your changes there
 git stash branch &lt;branchname&gt; [stash@&lt;revision&gt;]</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="04">
-          <h1>Tagging</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="04">
+            <h1>Tagging</h1>
 <ul>
 <li>There are two types of git tags - annotated and lightweight</li>
 <li>We’re going to only cover lightweight tags today (you’ll see these more often)</li>
@@ -378,10 +406,10 @@ git push origin :refs/tags/v99.0.0
 git tag -s v0.99.0-annotated -m &quot;my tag v0.99.0-annotated&quot;
 git show v0.99.0-annotated</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="05">
-          <h1>Cherry Picking</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="05">
+            <h1>Cherry Picking</h1>
 <p>Apply the changes introduced by some existing commits</p>
 <p>Our main use-case for git-cherry-pick is for taking some bugfix commits from one branch, and applying them to another (e.g. a release branch and master)</p>
 <pre><code class="lang-bash"># Ensure that you&#39;re on the branch you want to copy commits to
@@ -402,10 +430,10 @@ Date:   Thu Dec 1 16:42:17 2016 +0000
 
     name change</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="06">
-          <h1>Hooks</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="06">
+            <h1>Hooks</h1>
 <p>Do something before or after a particular action</p>
 <ul>
 <li>Server-side hooks: we can&#39;t use them because of Github. Use webhooks instead</li>
@@ -441,10 +469,10 @@ man githooks</code></pre>
 
 eslint ./lib</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="07">
-          <h1>Config</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="07">
+            <h1>Config</h1>
 <p>Config is layered: system, global (user), local (repo)</p>
 <pre><code class="lang-bash"># System
 cat /etc/gitconfig
@@ -496,10 +524,10 @@ git config --global commit.template ~/.git-commit-template</code></pre>
 <p>Lots of other useful aliases and config customization examples here:</p>
 <p><a href="https://github.com/matthewmccullough/dotfiles/blob/master/gitconfig">https://github.com/matthewmccullough/dotfiles/blob/master/gitconfig</a></p>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="08">
-          <h1>Bisecting</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="08">
+            <h1>Bisecting</h1>
 <ul>
 <li>git bisect helps you figure out when breaking changes were introduced</li>
 <li>Uses a binary-search between one changeset and another to quickly narrow breakage to a single commit</li>
@@ -521,10 +549,10 @@ git bisect bad bf0c5b1  # update to 502.0.0
 # If they pass - run `git bisect good`
 # When done, reset via `git bisect reset` &amp; patch the bug</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="09">
-          <h1>Under the Covers</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="09">
+            <h1>Under the Covers</h1>
 <pre><code class="lang-bash">$ tree -L 1 ./.git
 ./.git
 ├── branches
@@ -621,10 +649,10 @@ git checkout HEAD@{2} # detached head, consider creating a branch here if import
 # Reset current branch to an earlier state
 git reset [--hard] HEAD@{4}</code></pre>
 
-        </div>
-      
-        <div class="ui tab segment lab" data-tab="10">
-          <h1>Links</h1>
+          </div>
+        
+          <div class="ui tab segment lab" data-tab="10">
+            <h1>Links</h1>
 <ul>
 <li>Oh shit - <a href="http://ohshitgit.com/">http://ohshitgit.com/</a></li>
 <li>Interactive git cheatsheet - <a href="http://ndpsoftware.com/git-cheatsheet.html">http://ndpsoftware.com/git-cheatsheet.html</a></li>
@@ -634,14 +662,16 @@ git reset [--hard] HEAD@{4}</code></pre>
 <li>Atlassian Git Tutorials - <a href="https://www.atlassian.com/git/tutorials">https://www.atlassian.com/git/tutorials</a></li>
 </ul>
 
-        </div>
-      
+          </div>
+        
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  $(document).on('keydown', function(e) {
+
+
+  <script>
+    $(document).on('keydown', function(e) {
   e = e || window.event;
   var nextTab;
   switch (e.which || e.keyCode) {
@@ -661,7 +691,7 @@ git reset [--hard] HEAD@{4}</code></pre>
   }
 });
 
-  $(document).ready(function() {
+    $(document).ready(function() {
   $('img').addClass('ui image');
 
   $('.ui.embed').embed();
@@ -694,6 +724,16 @@ git reset [--hard] HEAD@{4}</code></pre>
     .sidebar('attach events', '#toc');
 });
 
-</script>
-</body>
+  </script>
+
+
+        </div>
+      </div>
+      <div class="footer"> <p> Powered by <a
+          href="https://github.com/edeleastar/tutors-ts">tutors-ts.</a>
+         </p>
+      </div>
+    </div>
+  </body>
+
 </html>
